@@ -1,0 +1,32 @@
+{
+  "agents": [
+    {
+      "name": "planner",
+      "role": "planning",
+      "enabled": true,
+      "timeoutSeconds": 60,
+      "command": "Write-Output ('PLAN task=' + $env:FLEET_TASK); Write-Output ('Files=' + (Get-ChildItem -Force | Select-Object -ExpandProperty Name) -join ', ')"
+    },
+    {
+      "name": "builder",
+      "role": "execution",
+      "enabled": true,
+      "timeoutSeconds": 300,
+      "command": "Write-Output ('BUILD task=' + $env:FLEET_TASK); git --no-pager status --short"
+    },
+    {
+      "name": "tester",
+      "role": "validation",
+      "enabled": true,
+      "timeoutSeconds": 300,
+      "command": "Write-Output ('TEST task=' + $env:FLEET_TASK); if (Test-Path package.json) { npm test } elseif (Test-Path Makefile) { make test } else { Write-Output 'No test runner configured.' }"
+    },
+    {
+      "name": "reviewer",
+      "role": "review",
+      "enabled": true,
+      "timeoutSeconds": 300,
+      "command": "Write-Output ('REVIEW task=' + $env:FLEET_TASK); git --no-pager diff --stat; git --no-pager diff --check"
+    }
+  ]
+}
