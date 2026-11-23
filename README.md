@@ -30,3 +30,11 @@ powershell -ExecutionPolicy Bypass -File .\scripts\run-fleet.ps1 -Task "Check re
 
 Agent definitions live in `config/fleet.json`. Set `enabled` to `false` to disable
 an agent, or replace `command` with a PowerShell command for that role.
+
+### Regression checks
+
+Run the focused runner regression checks with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tests\run-fleet-regressions.ps1
+```
