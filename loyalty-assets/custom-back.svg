@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title description">
+  <title id="title">ظهر تصميم بطاقة التعاون بلس المقترح</title>
+  <desc id="description">تعليمات استخدام البطاقة ورمز عضوية تجريبي غير قابل للمسح</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbfcf8"/>
+      <stop offset="1" stop-color="#eaf3ec"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0b3829"/>
+      <stop offset="1" stop-color="#1b754d"/>
+    </linearGradient>
+    <pattern id="lines" width="18" height="18" patternUnits="userSpaceOnUse">
+      <path d="M0 18 18 0" stroke="#0f5a3b" stroke-opacity=".045" stroke-width="2"/>
+    </pattern>
+    <clipPath id="card">
+      <rect x="12" y="12" width="936" height="576" rx="38"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#card)">
+    <rect width="960" height="600" fill="url(#paper)"/>
+    <rect width="960" height="600" fill="url(#lines)"/>
+    <rect x="0" y="0" width="960" height="92" fill="url(#green)"/>
+    <text x="480" y="59" text-anchor="middle" direction="rtl" fill="#fffdf8" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="25" font-weight="700">طريقة استخدام بطاقة الولاء</text>
+    <g transform="translate(575 147)">
+      <rect width="288" height="288" rx="24" fill="#fff" stroke="#d7e4da" stroke-width="3"/>
+      <rect x="83" y="83" width="122" height="122" rx="18" fill="#eaf3ec"/>
+      <path d="M104 108h80M104 132h80M104 156h80M104 180h80" stroke="#176b47" stroke-width="9" stroke-linecap="round" opacity=".8"/>
+      <text x="144" y="249" text-anchor="middle" direction="rtl" fill="#486453" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="17" font-weight="700">QR تجريبي</text>
+    </g>
+    <text x="355" y="200" text-anchor="middle" direction="rtl" fill="#164b32" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="25" font-weight="800">قدّم البطاقة عند كل شراء</text>
+    <text x="355" y="246" text-anchor="middle" direction="rtl" fill="#52665a" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="19">واجمع النقاط واستفد من الخصومات</text>
+    <path d="M130 294h450" stroke="#d3e4d7" stroke-width="2"/>
+    <text x="355" y="353" text-anchor="middle" direction="rtl" fill="#164b32" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="25" font-weight="700">كل نقطة تساوي دينارًا</text>
+    <text x="355" y="399" text-anchor="middle" direction="rtl" fill="#52665a" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="19">استخدام النقاط باختيارك</text>
+    <rect x="0" y="515" width="960" height="85" fill="url(#green)"/>
+    <text x="480" y="567" text-anchor="middle" direction="rtl" fill="#f7e5b7" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="21" font-weight="600">التعاون بلس • نقاطك، اختيارك</text>
+    <rect x="12" y="12" width="936" height="576" rx="38" fill="none" stroke="#d9e7dc" stroke-width="2"/>
+  </g>
+</svg>
