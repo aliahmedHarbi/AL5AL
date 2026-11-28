@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title description">
+  <title id="title">تصميم مقترح لبطاقة التعاون بلس</title>
+  <desc id="description">بطاقة ولاء خضراء أنيقة بلمسات ذهبية ونقوش هندسية هادئة</desc>
+  <defs>
+    <linearGradient id="forest" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b3829"/>
+      <stop offset=".56" stop-color="#126344"/>
+      <stop offset="1" stop-color="#238052"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8dfa0"/>
+      <stop offset="1" stop-color="#d4a84e"/>
+    </linearGradient>
+    <pattern id="arches" width="120" height="120" patternUnits="userSpaceOnUse">
+      <path d="M0 120V62a60 60 0 0 1 120 0v58M20 120V65a40 40 0 0 1 80 0v55" fill="none" stroke="#fff" stroke-opacity=".055" stroke-width="2"/>
+      <circle cx="60" cy="61" r="3" fill="#f3d992" fill-opacity=".26"/>
+    </pattern>
+    <clipPath id="card">
+      <rect x="12" y="12" width="936" height="576" rx="38"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#card)">
+    <rect width="960" height="600" fill="url(#forest)"/>
+    <rect width="960" height="600" fill="url(#arches)"/>
+    <path d="M-60 510C180 360 330 690 590 500s330-70 460-180v330H-60Z" fill="#072e22" fill-opacity=".24"/>
+    <path d="M0 90h960" stroke="url(#gold)" stroke-opacity=".7" stroke-width="2"/>
+    <rect x="66" y="56" width="8" height="54" rx="4" fill="url(#gold)"/>
+    <text x="480" y="76" text-anchor="middle" direction="rtl" fill="#f5e5bb" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="24" font-weight="600">التعاون هايبر ماركت</text>
+    <text x="480" y="300" text-anchor="middle" direction="rtl" fill="#fffdf8" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="86" font-weight="800" letter-spacing="-2">التعاون بلس</text>
+    <path d="M374 334h212" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
+    <text x="480" y="382" text-anchor="middle" direction="rtl" fill="#f8e9c5" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="26" font-weight="600">سلة أكبر، خصومات أكثر</text>
+    <g transform="translate(68 493)">
+      <rect width="168" height="42" rx="21" fill="#f8dfa0"/>
+      <text x="84" y="28" text-anchor="middle" direction="rtl" fill="#113e2c" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="19" font-weight="700">بطاقة الولاء</text>
+    </g>
+    <text x="480" y="555" text-anchor="middle" direction="rtl" fill="#f5f3e8" fill-opacity=".9" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-size="18">تسوّق • اجمع • استمتع</text>
+    <rect x="12" y="12" width="936" height="576" rx="38" fill="none" stroke="#f3d992" stroke-opacity=".58" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,1143 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0e5139">
+    <title>التعاون بلس | نموذج الولاء التجريبي</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --green-950: #093b2b;
+        --green-900: #0e5139;
+        --green-700: #18734e;
+        --green-100: #e7f4ed;
+        --green-50: #f3faf6;
+        --ink: #17231d;
+        --muted: #64746b;
+        --line: #e5ece8;
+        --white: #fff;
+        --gold: #f0c66c;
+        font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      [hidden] { display: none !important; }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        padding-bottom: 82px;
+        background: #f5f8f6;
+        color: var(--ink);
+      }
+
+      button, input { font: inherit; }
+      button { cursor: pointer; }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 18px max(5vw, 22px);
+        background: var(--green-900);
+        color: var(--white);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--white);
+        font-weight: 800;
+        font-size: 19px;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        color: var(--green-900);
+        background: var(--white);
+        font-size: 20px;
+      }
+
+      .demo-badge {
+        padding: 8px 13px;
+        border: 1px solid rgba(255,255,255,.55);
+        border-radius: 999px;
+        background: rgba(255,255,255,.12);
+        color: #fff4d6;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .store-context {
+        padding: 16px max(5vw, 22px) 13px;
+        background: #0e9c4a;
+        color: var(--white);
+      }
+
+      .delivery-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+        font-size: 13px;
+      }
+
+      .delivery-row span { color: rgba(255,255,255,.78); }
+      .delivery-row strong { font-size: 14px; }
+      .delivery-row .delivery-spacer { flex: 1; }
+
+      .store-search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 46px;
+        padding: 0 14px;
+        border-radius: 13px;
+        background: var(--white);
+        color: #516158;
+      }
+
+      .store-search input {
+        min-height: 44px;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+        background: transparent;
+        font-size: 14px;
+      }
+
+      .store-search input:focus { box-shadow: none; }
+
+      .store-categories {
+        display: flex;
+        gap: 9px;
+        overflow-x: auto;
+        padding: 13px 0 2px;
+        scrollbar-width: none;
+      }
+
+      .store-categories::-webkit-scrollbar { display: none; }
+      .category-chip {
+        flex: 0 0 auto;
+        padding: 7px 13px;
+        border: 1px solid rgba(255,255,255,.35);
+        border-radius: 999px;
+        background: rgba(255,255,255,.12);
+        color: var(--white);
+        font-size: 12px;
+      }
+
+      .home-view {
+        width: min(1120px, calc(100% - 36px));
+        margin: 20px auto 42px;
+      }
+
+      .home-loyalty-banner {
+        display: grid;
+        grid-template-columns: 1fr .72fr;
+        align-items: center;
+        gap: 24px;
+        padding: clamp(22px, 4vw, 36px);
+        border-radius: 20px;
+        background:
+          radial-gradient(ellipse at 18% 80%, rgba(101, 184, 122, .34), transparent 42%),
+          linear-gradient(115deg, #08743e, #13a653);
+        color: var(--white);
+      }
+
+      .home-loyalty-copy small {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: #d3f0d7;
+        font-weight: 700;
+      }
+
+      .home-loyalty-copy h1 {
+        margin: 0;
+        font-size: clamp(23px, 3.2vw, 34px);
+        line-height: 1.4;
+      }
+
+      .home-loyalty-copy p {
+        margin: 10px 0 18px;
+        color: rgba(255,255,255,.9);
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .home-open-loyalty {
+        min-height: 42px;
+        padding: 9px 16px;
+        border: 0;
+        border-radius: 11px;
+        background: var(--white);
+        color: var(--green-900);
+        font-weight: 800;
+      }
+
+      .home-points-card {
+        position: relative;
+        isolation: isolate;
+        display: flex;
+        min-height: 210px;
+        aspect-ratio: 1.6;
+        flex-direction: column;
+        justify-content: center;
+        padding: 22px;
+        overflow: hidden;
+        border: 1px solid rgba(248,223,160,.72);
+        border-radius: 18px;
+        background:
+          radial-gradient(ellipse at 18% 88%, rgba(86,169,112,.38), transparent 42%),
+          linear-gradient(135deg, #093b2b, #126344 62%, #1b754d);
+        color: var(--white);
+        box-shadow: 0 14px 30px rgba(0,0,0,.12);
+      }
+
+      .home-points-card::before {
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        background: repeating-radial-gradient(ellipse at 88% 8%, transparent 0 13px, rgba(255,255,255,.06) 14px 16px);
+        content: "";
+      }
+
+      .home-points-card::after {
+        position: absolute;
+        right: 0;
+        bottom: 14px;
+        left: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #f8dfa0, transparent);
+        content: "";
+      }
+
+      .home-card-brand {
+        display: block;
+        margin-bottom: 20px;
+        color: #f8dfa0;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .home-points-card .home-card-label { display: block; color: rgba(255,255,255,.78); font-size: 13px; }
+      .home-points-card strong { display: block; margin: 5px 0; color: var(--white); font-size: clamp(26px, 3vw, 34px); }
+      .home-points-card small { color: #f8dfa0; font-size: 12px; font-weight: 700; }
+
+      .home-section {
+        margin-top: 25px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--white);
+      }
+
+      .home-section-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .home-section-heading h2 { font-size: 19px; }
+      .home-section-heading span { color: var(--green-700); font-size: 13px; }
+
+      .home-category-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .home-category {
+        display: grid;
+        justify-items: center;
+        gap: 8px;
+        min-height: 112px;
+        padding: 13px 8px;
+        border: 1px solid #edf1ee;
+        border-radius: 14px;
+        background: #fcfdfc;
+        color: var(--ink);
+        text-align: center;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .home-category-icon {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 15px;
+        background: var(--green-100);
+        color: var(--green-700);
+        font-size: 22px;
+      }
+
+      .home-promo-note {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 18px;
+        border-radius: 15px;
+        background: #f0f8f2;
+        color: var(--green-950);
+      }
+
+      .home-promo-note p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+
+      main {
+        width: min(1120px, calc(100% - 36px));
+        margin: 30px auto 60px;
+      }
+
+      .notice {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 14px 17px;
+        margin-bottom: 22px;
+        border: 1px solid #cfe7d8;
+        border-radius: 14px;
+        background: var(--green-50);
+        color: #315d46;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .notice strong { color: var(--green-950); }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 34px;
+        align-items: center;
+        padding: clamp(24px, 5vw, 54px);
+        border-radius: 26px;
+        background:
+          radial-gradient(ellipse at 82% 12%, rgba(80, 153, 111, .36), transparent 40%),
+          linear-gradient(135deg, var(--green-950), var(--green-900));
+        color: var(--white);
+        overflow: hidden;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: #b7ddc5;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 600px;
+        font-size: clamp(30px, 4vw, 44px);
+        line-height: 1.35;
+      }
+
+      .hero-copy {
+        margin: 15px 0 24px;
+        max-width: 570px;
+        color: #d3e6da;
+        line-height: 1.9;
+      }
+
+      .primary-button, .secondary-button, .quiet-button {
+        min-height: 46px;
+        padding: 11px 18px;
+        border: 0;
+        border-radius: 12px;
+        font-weight: 750;
+        transition: transform .15s ease, background .15s ease;
+      }
+
+      .primary-button {
+        background: var(--white);
+        color: var(--green-950);
+      }
+
+      .primary-button:hover, .secondary-button:hover { transform: translateY(-1px); }
+
+      .card-showcase { text-align: center; }
+      .card-face {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        aspect-ratio: 1.6;
+        border: 1px solid rgba(255,255,255,.55);
+        border-radius: 18px;
+        box-shadow: 0 22px 45px rgba(0,0,0,.2);
+      }
+
+      .card-front {
+        isolation: isolate;
+        color: #fffdf8;
+        background:
+          radial-gradient(ellipse at 20% 85%, rgba(70, 155, 102, .44), transparent 42%),
+          linear-gradient(135deg, #0b3829, #126344 58%, #238052);
+      }
+
+      .card-front::before {
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        background: repeating-radial-gradient(ellipse at 50% 12%, transparent 0 12px, rgba(255,255,255,.055) 13px 15px);
+        content: "";
+      }
+
+      .card-front::after {
+        position: absolute;
+        z-index: -1;
+        right: -18%;
+        bottom: -25%;
+        width: 136%;
+        height: 45%;
+        border: 1px solid rgba(240,198,108,.38);
+        border-radius: 50%;
+        box-shadow: 0 -12px 0 -11px rgba(240,198,108,.28), 0 -24px 0 -23px rgba(255,255,255,.14);
+        content: "";
+        transform: rotate(-8deg);
+      }
+
+      .front-brand, .front-title, .front-tagline, .front-pill, .front-footer {
+        position: absolute;
+        right: 7%;
+        left: 7%;
+        text-align: center;
+      }
+
+      .front-brand {
+        top: 11%;
+        color: #f5e5bb;
+        font-size: clamp(11px, 1.5vw, 15px);
+        font-weight: 650;
+      }
+
+      .front-title {
+        top: 39%;
+        font-size: clamp(25px, 4vw, 42px);
+        font-weight: 900;
+        line-height: 1.25;
+      }
+
+      .front-tagline {
+        top: 61%;
+        color: #f8e9c5;
+        font-size: clamp(12px, 1.9vw, 18px);
+        font-weight: 650;
+      }
+
+      .front-pill {
+        right: auto;
+        bottom: 10%;
+        left: 7%;
+        width: max-content;
+        padding: 7px 15px;
+        border-radius: 999px;
+        background: #f8dfa0;
+        color: #113e2c;
+        font-size: clamp(10px, 1.3vw, 13px);
+        font-weight: 800;
+      }
+
+      .front-footer {
+        right: 7%;
+        bottom: 12%;
+        left: 42%;
+        color: rgba(255,253,248,.88);
+        font-size: clamp(9px, 1.2vw, 12px);
+      }
+
+      .card-back {
+        color: #164b32;
+        background:
+          repeating-linear-gradient(135deg, transparent 0 9px, rgba(15,90,59,.035) 10px 11px),
+          linear-gradient(145deg, #fbfcf8, #eaf3ec);
+      }
+
+      .back-head {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        display: grid;
+        height: 17%;
+        place-items: center;
+        background: linear-gradient(90deg, #0b3829, #1b754d);
+        color: #fffdf8;
+        font-size: clamp(12px, 2vw, 19px);
+        font-weight: 800;
+      }
+
+      .back-content {
+        position: absolute;
+        top: 20%;
+        right: 7%;
+        bottom: 17%;
+        left: 7%;
+        display: grid;
+        grid-template-columns: 1fr .72fr;
+        align-items: center;
+        gap: 5%;
+      }
+
+      .back-copy { text-align: center; }
+      .back-copy strong {
+        display: block;
+        margin-bottom: 8%;
+        font-size: clamp(13px, 2.2vw, 21px);
+        line-height: 1.5;
+      }
+
+      .back-copy span {
+        display: block;
+        margin-top: 6%;
+        color: #52665a;
+        font-size: clamp(10px, 1.55vw, 15px);
+        line-height: 1.55;
+      }
+
+      .qr-placeholder {
+        display: grid;
+        width: 100%;
+        aspect-ratio: 1;
+        align-content: center;
+        justify-items: center;
+        gap: 8px;
+        border: 1px solid #d7e4da;
+        border-radius: 14px;
+        background: #fff;
+        color: #176b47;
+      }
+
+      .qr-placeholder strong { font-size: clamp(15px, 2.2vw, 22px); letter-spacing: 2px; }
+      .qr-placeholder span { color: #486453; font-size: clamp(9px, 1.2vw, 12px); }
+
+      .back-footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: grid;
+        height: 14%;
+        place-items: center;
+        background: linear-gradient(90deg, #0b3829, #1b754d);
+        color: #f7e5b7;
+        font-size: clamp(10px, 1.5vw, 15px);
+        font-weight: 700;
+      }
+
+      .card-switch {
+        margin-top: 16px;
+        padding: 9px 14px;
+        border: 1px solid rgba(255,255,255,.45);
+        border-radius: 10px;
+        background: transparent;
+        color: var(--white);
+        font-weight: 700;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin: 22px 0;
+      }
+
+      .stat, .panel {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--white);
+        box-shadow: 0 6px 24px rgba(14, 48, 32, .035);
+      }
+
+      .stat { padding: 21px; }
+      .stat-label { color: var(--muted); font-size: 14px; }
+      .stat-value {
+        display: block;
+        margin-top: 10px;
+        color: var(--green-900);
+        font-size: 28px;
+        font-weight: 850;
+      }
+
+      .stat-note { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .panel { padding: 24px; }
+      .panel-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 9px;
+      }
+
+      h2 { margin: 0; color: var(--green-950); font-size: 20px; }
+      .panel-description { margin: 7px 0 20px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+      .field-label { display: block; margin: 15px 0 8px; font-size: 14px; font-weight: 700; }
+      .input-wrap { position: relative; }
+
+      input {
+        width: 100%;
+        min-height: 48px;
+        padding: 11px 13px;
+        border: 1px solid #d6e1db;
+        border-radius: 11px;
+        outline: none;
+        background: #fcfefd;
+        color: var(--ink);
+      }
+
+      input:focus { border-color: var(--green-700); box-shadow: 0 0 0 3px rgba(24,115,78,.12); }
+      input::placeholder { color: #9aa8a0; }
+
+      .secondary-button {
+        width: 100%;
+        margin-top: 14px;
+        background: var(--green-900);
+        color: var(--white);
+      }
+
+      .quiet-button {
+        min-height: unset;
+        padding: 7px 11px;
+        border: 1px solid var(--line);
+        background: var(--white);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .sms {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 15px;
+        border: 1px solid #d8e9df;
+        border-radius: 14px;
+        background: var(--green-50);
+      }
+
+      .sms-icon {
+        display: grid;
+        flex: 0 0 38px;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: var(--green-900);
+        color: var(--white);
+        font-size: 18px;
+      }
+
+      .sms-title { margin: 0 0 5px; color: var(--green-950); font-weight: 800; }
+      .sms-body { margin: 0; color: #40564a; font-size: 14px; line-height: 1.75; }
+      .sms-time { display: block; margin-top: 8px; color: #74857b; font-size: 11px; }
+
+      .history { grid-column: 1 / -1; }
+      .history-list { display: grid; gap: 0; }
+      .history-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 14px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .history-title { margin: 0; font-size: 14px; font-weight: 700; }
+      .history-date { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; }
+      .history-amount { white-space: nowrap; color: var(--green-700); font-weight: 800; }
+      .history-amount.negative { color: #9c5b39; }
+      .empty-state { padding: 18px 0 4px; color: var(--muted); font-size: 14px; }
+
+      .footnote { margin: 20px 2px 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+      .toast {
+        position: fixed;
+        z-index: 20;
+        right: 50%;
+        bottom: 92px;
+        width: min(420px, calc(100% - 30px));
+        padding: 14px 18px;
+        border-radius: 14px;
+        background: var(--green-950);
+        color: var(--white);
+        box-shadow: 0 12px 36px rgba(0,0,0,.2);
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(50%, 12px);
+        transition: opacity .2s ease, transform .2s ease;
+      }
+
+      .toast.show { opacity: 1; transform: translate(50%, 0); }
+
+      .app-nav {
+        position: fixed;
+        z-index: 10;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-around;
+        padding: 9px 10px calc(9px + env(safe-area-inset-bottom));
+        border-top: 1px solid var(--line);
+        background: rgba(255,255,255,.97);
+        box-shadow: 0 -7px 24px rgba(14,48,32,.08);
+      }
+
+      .app-nav button {
+        display: grid;
+        justify-items: center;
+        gap: 3px;
+        min-width: 58px;
+        padding: 3px 7px;
+        border: 0;
+        background: transparent;
+        color: #68766e;
+        font-size: 11px;
+      }
+
+      .app-nav button span { font-size: 18px; line-height: 1.2; }
+      .app-nav button.active { color: #0e9c4a; font-weight: 800; }
+
+      .modal-backdrop {
+        position: fixed;
+        z-index: 15;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 18px;
+        background: rgba(5, 28, 19, .62);
+      }
+
+      .modal {
+        position: relative;
+        width: min(440px, 100%);
+        padding: 26px;
+        border-radius: 20px;
+        background: var(--white);
+        box-shadow: 0 25px 70px rgba(0,0,0,.25);
+      }
+
+      .modal h2 { margin-bottom: 8px; }
+      .modal-copy { margin: 0 0 18px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+      .modal-close {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--green-50);
+        color: var(--green-950);
+        font-size: 20px;
+      }
+
+      @media (max-width: 760px) {
+        .home-loyalty-banner { grid-template-columns: 1fr; }
+        .home-category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .hero { grid-template-columns: 1fr; }
+        .content-grid { grid-template-columns: 1fr; }
+        .history { grid-column: auto; }
+      }
+
+      @media (max-width: 520px) {
+        .topbar { padding: 14px 18px; }
+        .brand { font-size: 16px; }
+        .demo-badge { font-size: 11px; }
+        .home-view { width: calc(100% - 24px); margin-top: 14px; }
+        .home-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .home-section { padding: 15px; }
+        main { width: calc(100% - 24px); margin-top: 16px; }
+        .stats { grid-template-columns: 1fr; gap: 10px; }
+        .stat { padding: 16px; }
+        .stat-value { display: inline-block; margin: 0 8px 0 0; font-size: 22px; }
+        .stat-note { display: inline-block; }
+        .panel { padding: 18px; }
+        .card-title { font-size: 29px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">ت</span>
+        <span>التعاون هايبر ماركت</span>
+      </div>
+      <span class="demo-badge">نموذج تجريبي</span>
+    </header>
+
+    <section class="store-context" id="home" aria-label="واجهة المتجر">
+      <div class="delivery-row">
+        <span>التوصيل إلى</span>
+        <strong>حدّد موقع التوصيل</strong>
+        <span aria-hidden="true">⌄</span>
+        <span class="delivery-spacer"></span>
+        <span aria-hidden="true">♧</span>
+      </div>
+      <label class="store-search">
+        <span aria-hidden="true">⌕</span>
+        <input type="search" placeholder="ماذا تحتاج اليوم؟" aria-label="ابحث عن المنتجات">
+      </label>
+      <nav class="store-categories" id="storeCategories" aria-label="أقسام المتجر">
+        <button class="category-chip" type="button">المشتريات</button>
+        <button class="category-chip" type="button">اللحوم الطازجة</button>
+        <button class="category-chip" type="button">الألبان</button>
+        <button class="category-chip" type="button">المشروبات</button>
+        <button class="category-chip" type="button">العناية الشخصية</button>
+      </nav>
+    </section>
+
+    <section class="home-view" id="homeView" aria-label="الرئيسية">
+      <section class="home-loyalty-banner">
+        <div class="home-loyalty-copy">
+          <small>بطاقة التعاون بلس</small>
+          <h1>كل نقطة أقرب إلى مكافأتك</h1>
+          <p>اجمع نقاط الولاء عند الشراء، وتابع رصيدك، واختر بنفسك متى تستخدمه. كل نقطة تساوي دينارًا واحدًا.</p>
+          <button class="home-open-loyalty" id="openLoyalty" type="button">عرض بطاقة الولاء</button>
+        </div>
+        <div class="home-points-card">
+          <span class="home-card-brand">التعاون بلس · بطاقة الولاء</span>
+          <span class="home-card-label">رصيد نقاط الولاء</span>
+          <strong><bdi id="homePointsBalance">١٢٥</bdi> نقطة</strong>
+          <small><bdi id="homePointsValue">١٢٥</bdi> دينار عراقي · كل نقطة = دينار</small>
+        </div>
+      </section>
+
+      <section class="home-section" id="homeCategories">
+        <div class="home-section-heading">
+          <h2>الأقسام</h2>
+          <span>تسوّق حسب احتياجك</span>
+        </div>
+        <div class="home-category-grid">
+          <div class="home-category"><span class="home-category-icon" aria-hidden="true">✿</span><span>منتجات صحية</span></div>
+          <div class="home-category"><span class="home-category-icon" aria-hidden="true">◉</span><span>عناية شخصية</span></div>
+          <div class="home-category"><span class="home-category-icon" aria-hidden="true">◇</span><span>مستلزمات الغسيل والمنظفات</span></div>
+          <div class="home-category"><span class="home-category-icon" aria-hidden="true">✎</span><span>القرطاسية</span></div>
+          <div class="home-category"><span class="home-category-icon" aria-hidden="true">✦</span><span>مكياج</span></div>
+          <div class="home-category"><span class="home-category-icon" aria-hidden="true">⌂</span><span>مستلزمات المنزل</span></div>
+          <div class="home-category"><span class="home-category-icon" aria-hidden="true">♧</span><span>عناية الحيوانات</span></div>
+          <div class="home-category"><span class="home-category-icon" aria-hidden="true">☼</span><span>مستلزمات العناية</span></div>
+        </div>
+      </section>
+
+      <section class="home-section">
+        <div class="home-section-heading">
+          <h2>نقاطك، باختيارك</h2>
+          <span>بطاقة الولاء</span>
+        </div>
+        <div class="home-promo-note">
+          <div>
+            <strong>استبدل نقاطك وقت ما تحب</strong>
+            <p>الخصم لا يُطبّق تلقائيًا، وقيمة النقطة دينار واحد.</p>
+          </div>
+          <button class="quiet-button" type="button" id="openLoyaltyFromNote">التفاصيل</button>
+        </div>
+      </section>
+    </section>
+
+    <main id="loyaltySection" hidden>
+      <div class="notice">
+        <span aria-hidden="true">ⓘ</span>
+        <div><strong>للتجربة فقط:</strong> هذا نموذج تصوّري ولا يتصل بأنظمة التعاون أو يرسل رسائل SMS حقيقية. عدد النقاط المضافة يُدخل يدويًا لأن معدل اكتساب النقاط لم يُحدّد.</div>
+      </div>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">برنامج نقاط الولاء</p>
+          <h1 id="page-title">كل نقطة أقرب إلى مكافأتك</h1>
+          <p class="hero-copy">قدّم بطاقة التعاون بلس عند كل عملية شراء. بعد تسجيل النقاط، تصلك رسالة تأكيد ويمكنك متابعة رصيدك واختيار استخدامه بنفسك.</p>
+          <button class="primary-button" id="simulatePurchase">محاكاة شراء وإضافة نقاط</button>
+        </div>
+        <div class="card-showcase">
+          <div class="card-face card-front" id="cardFront" role="group" aria-label="الوجه الأمامي المقترح لبطاقة التعاون بلس">
+            <span class="front-brand">التعاون هايبر ماركت</span>
+            <span class="front-title">التعاون بلس</span>
+            <span class="front-tagline">سلة أكبر، خصومات أكثر</span>
+            <span class="front-pill">بطاقة الولاء</span>
+            <span class="front-footer">تسوّق • اجمع • استمتع</span>
+          </div>
+          <div class="card-face card-back" id="cardBack" role="group" aria-label="الوجه الخلفي المقترح لبطاقة التعاون بلس" hidden>
+            <div class="back-head">طريقة استخدام بطاقة الولاء</div>
+            <div class="back-content">
+              <div class="back-copy">
+                <strong>قدّم البطاقة عند كل شراء</strong>
+                <span>واجمع النقاط واستفد من الخصومات</span>
+                <span><b>كل نقطة تساوي دينارًا</b></span>
+                <span>استخدام النقاط باختيارك</span>
+              </div>
+              <div class="qr-placeholder" aria-label="رمز عضوية تجريبي">
+                <strong>QR</strong>
+                <span>رمز تجريبي</span>
+              </div>
+            </div>
+            <div class="back-footer">التعاون بلس · نقاطك، اختيارك</div>
+          </div>
+          <button class="card-switch" id="toggleCard" type="button">عرض ظهر البطاقة</button>
+        </div>
+      </section>
+
+      <section class="stats" aria-label="ملخص رصيد الولاء">
+        <article class="stat">
+          <span class="stat-label">رصيد النقاط</span>
+          <strong class="stat-value" id="pointsBalance">١٢٥</strong>
+          <span class="stat-note">نقطة</span>
+        </article>
+        <article class="stat">
+          <span class="stat-label">قيمة النقاط</span>
+          <strong class="stat-value" id="pointsValue">١٢٥</strong>
+          <span class="stat-note">دينار عراقي</span>
+        </article>
+        <article class="stat">
+          <span class="stat-label">قيمة النقطة الواحدة</span>
+          <strong class="stat-value">١</strong>
+          <span class="stat-note">دينار عراقي</span>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel">
+          <div class="panel-heading">
+            <h2>استخدم نقاطك</h2>
+            <span class="demo-badge">باختيارك</span>
+          </div>
+          <p class="panel-description">أدخل عدد النقاط التي تريد استبدالها. لا يُطبّق أي خصم تلقائيًا.</p>
+          <label class="field-label" for="redeemAmount">عدد النقاط</label>
+          <input id="redeemAmount" type="number" min="1" step="1" inputmode="numeric" placeholder="مثال: ٢٠">
+          <button class="secondary-button" id="redeemButton">استبدال النقاط يدويًا</button>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <h2>رسالة التأكيد</h2>
+            <span aria-hidden="true">●</span>
+          </div>
+          <p class="panel-description">تصل الرسالة بعد تسجيل نقاط عملية الشراء.</p>
+          <div class="sms" aria-live="polite">
+            <span class="sms-icon" aria-hidden="true">✉</span>
+            <div>
+              <p class="sms-title">التعاون بلس</p>
+              <p class="sms-body" id="smsBody">تمت إضافة نقاط مشترياتك إلى بطاقة الولاء. رصيدك الحالي ١٢٥ نقطة.</p>
+              <span class="sms-time" id="smsTime">رسالة تجريبية · الآن</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel history">
+          <div class="panel-heading">
+            <h2>حركة النقاط</h2>
+            <button class="quiet-button" id="resetDemo">إعادة ضبط النموذج</button>
+          </div>
+          <p class="panel-description">سجل محلي تجريبي محفوظ في هذا المتصفح فقط.</p>
+          <div class="history-list" id="historyList"></div>
+        </article>
+      </section>
+      <p class="footnote">التطبيق ونظام الولاء في هذه الصفحة مجرد نموذج توضيحي. تفاصيل ربط البطاقة، استحقاق النقاط، ورسائل الهاتف تحتاج اعتمادًا وربطًا رسميًا من التعاون.</p>
+    </main>
+
+    <nav class="app-nav" aria-label="التنقل الرئيسي">
+      <button type="button" class="active" data-target="homeView"><span aria-hidden="true">⌂</span>الرئيسية</button>
+      <button type="button" data-target="homeCategories"><span aria-hidden="true">▦</span>الأقسام</button>
+      <button type="button" data-target="loyaltySection"><span aria-hidden="true">★</span>الولاء</button>
+      <button type="button" data-target="orders"><span aria-hidden="true">▤</span>طلباتي</button>
+      <button type="button" data-target="account"><span aria-hidden="true">◉</span>حسابي</button>
+    </nav>
+
+    <div class="modal-backdrop" id="purchaseModal" hidden>
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="cancelPurchase" type="button" aria-label="إغلاق">×</button>
+        <h2 id="modalTitle">محاكاة عملية شراء</h2>
+        <p class="modal-copy">أدخل عدد النقاط المكتسبة في هذه العملية. معدل اكتساب النقاط لم يُحدّد بعد، لذلك لا يحسبه النموذج تلقائيًا.</p>
+        <label class="field-label" for="earnedPoints">النقاط المضافة</label>
+        <input id="earnedPoints" type="number" min="1" step="1" inputmode="numeric" placeholder="أدخل عدد النقاط">
+        <button class="secondary-button" id="confirmPurchase" type="button">تأكيد الشراء وإضافة النقاط</button>
+      </section>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      (() => {
+        const storageKey = "taawon-loyalty-prototype-v1";
+        const initialState = {
+          balance: 125,
+          history: [{ type: "welcome", amount: 125, label: "رصيد افتتاحي تجريبي", time: Date.now() }]
+        };
+        let state;
+        try {
+          state = JSON.parse(localStorage.getItem(storageKey)) || structuredClone(initialState);
+        } catch {
+          state = structuredClone(initialState);
+        }
+
+        const number = value => new Intl.NumberFormat("ar-IQ").format(value);
+        const $ = id => document.getElementById(id);
+        const toast = $("toast");
+        let toastTimer;
+
+        function save() {
+          localStorage.setItem(storageKey, JSON.stringify(state));
+        }
+
+        function announce(message) {
+          toast.textContent = message;
+          toast.classList.add("show");
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => toast.classList.remove("show"), 3200);
+        }
+
+        function render() {
+          $("pointsBalance").textContent = number(state.balance);
+          $("pointsValue").textContent = number(state.balance);
+          $("homePointsBalance").textContent = number(state.balance);
+          $("homePointsValue").textContent = number(state.balance);
+          $("smsBody").textContent = `تمت إضافة نقاط مشترياتك إلى بطاقة الولاء. رصيدك الحالي ${number(state.balance)} نقطة.`;
+          const historyList = $("historyList");
+          historyList.replaceChildren();
+
+          if (state.history.length === 0) {
+            const empty = document.createElement("p");
+            empty.className = "empty-state";
+            empty.textContent = "لا توجد حركات بعد.";
+            historyList.append(empty);
+            return;
+          }
+
+          state.history.forEach(item => {
+            const row = document.createElement("div");
+            row.className = "history-row";
+            const details = document.createElement("div");
+            const title = document.createElement("p");
+            title.className = "history-title";
+            title.textContent = item.label;
+            const date = document.createElement("span");
+            date.className = "history-date";
+            date.textContent = new Date(item.time).toLocaleString("ar-IQ", { dateStyle: "medium", timeStyle: "short" });
+            details.append(title, date);
+            const amount = document.createElement("span");
+            amount.className = `history-amount${item.type === "redeem" ? " negative" : ""}`;
+            amount.textContent = `${item.type === "redeem" ? "−" : "+"} ${number(item.amount)} نقطة`;
+            row.append(details, amount);
+            historyList.append(row);
+          });
+        }
+
+        const purchaseModal = $("purchaseModal");
+        $("simulatePurchase").addEventListener("click", () => {
+          purchaseModal.hidden = false;
+          $("earnedPoints").value = "";
+          $("earnedPoints").focus();
+        });
+
+        function closePurchaseModal() {
+          purchaseModal.hidden = true;
+        }
+
+        $("cancelPurchase").addEventListener("click", closePurchaseModal);
+        purchaseModal.addEventListener("click", event => {
+          if (event.target === purchaseModal) closePurchaseModal();
+        });
+        $("earnedPoints").addEventListener("keydown", event => {
+          if (event.key === "Enter") $("confirmPurchase").click();
+          if (event.key === "Escape") closePurchaseModal();
+        });
+
+        $("confirmPurchase").addEventListener("click", () => {
+          const earned = Number($("earnedPoints").value);
+          if (!Number.isSafeInteger(earned) || earned <= 0) {
+            announce("أدخل عددًا صحيحًا أكبر من صفر.");
+            $("earnedPoints").focus();
+            return;
+          }
+          state.balance += earned;
+          state.history.unshift({ type: "earn", amount: earned, label: "نقاط مشتريات تجريبية", time: Date.now() });
+          $("smsTime").textContent = "رسالة تجريبية · الآن";
+          closePurchaseModal();
+          save();
+          render();
+          announce(`تمت إضافة ${number(earned)} نقطة، ومحاكاة إرسال رسالة التأكيد.`);
+        });
+
+        $("redeemButton").addEventListener("click", () => {
+          const input = $("redeemAmount");
+          const points = Number(input.value);
+          if (!Number.isSafeInteger(points) || points <= 0) {
+            announce("أدخل عددًا صحيحًا من النقاط للاستبدال.");
+            input.focus();
+            return;
+          }
+          if (points > state.balance) {
+            announce("رصيدك لا يكفي لهذا العدد من النقاط.");
+            input.focus();
+            return;
+          }
+          state.balance -= points;
+          state.history.unshift({ type: "redeem", amount: points, label: `استبدال يدوي بقيمة ${number(points)} دينار`, time: Date.now() });
+          input.value = "";
+          save();
+          render();
+          announce(`تمت محاكاة استبدال ${number(points)} نقطة بقيمة ${number(points)} دينار.`);
+        });
+
+        $("resetDemo").addEventListener("click", () => {
+          state = structuredClone(initialState);
+          localStorage.removeItem(storageKey);
+          $("smsTime").textContent = "رسالة تجريبية · الآن";
+          render();
+          announce("أُعيد ضبط بيانات النموذج التجريبي.");
+        });
+
+        let showingCardBack = false;
+        $("toggleCard").addEventListener("click", () => {
+          showingCardBack = !showingCardBack;
+          $("cardFront").hidden = showingCardBack;
+          $("cardBack").hidden = !showingCardBack;
+          $("toggleCard").textContent = showingCardBack ? "عرض وجه البطاقة" : "عرض ظهر البطاقة";
+        });
+
+        const navButtons = [...document.querySelectorAll(".app-nav button")];
+        function showScreen(target) {
+          if (target === "orders" || target === "account") {
+            announce("هذا النموذج يركز على الرئيسية وبرنامج الولاء فقط.");
+            return;
+          }
+          const loyaltySelected = target === "loyaltySection";
+          $("homeView").hidden = loyaltySelected;
+          $("loyaltySection").hidden = !loyaltySelected;
+          navButtons.forEach(button => {
+            button.classList.toggle("active", button.dataset.target === target);
+          });
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          if (target === "homeCategories") {
+            $("homeCategories").scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+
+        navButtons.forEach(button => {
+          button.addEventListener("click", () => showScreen(button.dataset.target));
+        });
+        $("openLoyalty").addEventListener("click", () => showScreen("loyaltySection"));
+        $("openLoyaltyFromNote").addEventListener("click", () => showScreen("loyaltySection"));
+
+        render();
+      })();
+    </script>
+  </body>
+</html>
